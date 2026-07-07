@@ -25,6 +25,12 @@
   });
 
   function sendmail(thisForm){
+    if (typeof emailjs !== 'undefined') {
+      emailjs.init({
+        publicKey: "r1YGwEd2slTAXLqKT",
+      });
+    }
+    
     emailjs.sendForm('service_bx9gn4k', 'template_a4j9ojd', '#feedbackform')
     .then(
       (response) => {
@@ -36,7 +42,7 @@
       },
       (error) => {
         console.log('FAILED...', error);
-        throw new Error(error); 
+        throw error; 
       },
     )
     .catch((error) => {
@@ -46,7 +52,8 @@
 
   function displayError(thisForm, error) {
     thisForm.querySelector('.loading').classList.remove('d-block');
-    thisForm.querySelector('.error-message').innerHTML = error.text;
+    let message = error.text || error.message || error || 'Form submission failed';
+    thisForm.querySelector('.error-message').innerHTML = message;
     thisForm.querySelector('.error-message').classList.add('d-block');
   }
 

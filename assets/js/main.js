@@ -37,15 +37,32 @@
   }
 
   /**
-   * Hide mobile nav on same-page/hash links
+   * Smooth scroll for all anchor links and hide mobile nav on click
    */
-  document.querySelectorAll('#navmenu a').forEach(navmenu => {
-    navmenu.addEventListener('click', () => {
-      if (document.querySelector('.mobile-nav-active')) {
-        mobileNavToogle();
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const targetId = this.getAttribute('href');
+      if (targetId === '#') return;
+      
+      const targetElement = document.querySelector(targetId);
+      if (targetElement) {
+        e.preventDefault();
+        
+        // Hide mobile nav if active
+        if (document.querySelector('.mobile-nav-active')) {
+          mobileNavToogle();
+        }
+        
+        const scrollMarginTop = getComputedStyle(targetElement).scrollMarginTop;
+        window.scrollTo({
+          top: targetElement.offsetTop - parseInt(scrollMarginTop || 0),
+          behavior: 'smooth'
+        });
+        
+        // Update URL hash without causing a page jump
+        history.pushState(null, null, targetId);
       }
     });
-
   });
 
   /**

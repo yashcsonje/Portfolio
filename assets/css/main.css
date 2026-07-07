@@ -1657,6 +1657,16 @@ section,
   font-size: 1.4rem;
 }
 
+.contact .contact-info .email-link {
+  color: var(--default-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contact .contact-info .email-link:hover {
+  color: var(--accent-color) !important;
+}
+
 .contact .contact-info .map-link {
   color: var(--heading-color);
   font-weight: 500;

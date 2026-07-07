@@ -106,7 +106,7 @@
             <h2>Exploring Cloud & DevOps Technologies | Street Photographer</h2>
             <p class="lead">Electrical Engineer | AWS Certified | Git Certified | IoT Platforms</p>
             <div class="cta-buttons" data-aos="fade-up" data-aos-delay="300">
-              <a href="#awards" class="btn btn-primary">View My Achievments</a>
+              <a href="#awards" class="btn btn-primary">View My Achievements</a>
               <a href="#contact" class="btn btn-outline">Let's Connect</a>
             </div>
             <div class="hero-stats" data-aos="fade-up" data-aos-delay="400">
@@ -281,7 +281,7 @@
     </div><!-- /Skills Section -->
 
     <!-- Project Section -->
-    <section id="Project" class="project section">
+    <section id="projects" class="project section">
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
@@ -664,7 +664,7 @@
               <div class="contact-info mt-5">
                 <div class="info-item d-flex mb-3">
                   <i class="bi bi-envelope-at me-3"></i>
-                  <span>ycsonje4@gmail.com</span>
+                  <a href="mailto:ycsonje4@gmail.com" class="email-link">ycsonje4@gmail.com</a>
                 </div>
 
                 <div class="info-item d-flex mb-3">
@@ -764,11 +764,13 @@
   src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js" defer>
   </script>
   <script type="text/javascript">
-    (function(){
-       emailjs.init({
-         publicKey: "r1YGwEd2slTAXLqKT",
-       });
-    })();
+    document.addEventListener('DOMContentLoaded', function() {
+      if (typeof emailjs !== 'undefined') {
+        emailjs.init({
+          publicKey: "r1YGwEd2slTAXLqKT",
+        });
+      }
+    });
   </script>
 
   <!-- Main JS File -->
