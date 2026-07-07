@@ -1,96 +1,119 @@
-# 🌐 Yash Sonje – Portfolio Website
+# 🌐 Yash Sonje Portfolio
 
-Welcome to my personal portfolio website! This portfolio showcases my journey as an **Electrical Engineer**, **Aspiring Cloud & DevOps Engineer**, and **AWS Certified Cloud Practitioner**. It highlights my technical projects, certifications, achievements, leadership experience, and passion for cloud computing, DevOps, IoT, and street photography.
+A modern and responsive personal portfolio website showcasing my projects, technical skills, certifications, leadership experience, and achievements. The website is hosted on AWS with an automated CI/CD pipeline using GitHub Actions.
 
-## 🚀 About
+## 🚀 Live Website
 
-This portfolio is designed to present my academic projects, technical skills, certifications, and engineering journey in a modern and interactive way. It reflects my continuous learning and hands-on experience with cloud technologies, automation, and IoT solutions.
+🔗 https://www.yashcsonje.in
+
+---
 
 ## ✨ Features
 
-- Responsive and modern portfolio design
-- About Me section
-- Engineering Journey & Featured Projects
-- Detailed project pages
-- AWS & DevOps focused profile
-- Certifications & Achievements
-- Skills & Technologies
+- Responsive and modern UI
+- Project showcase
+- Skills and certifications
+- Leadership and event experience
 - Contact section
-- Street Photography showcase
-- Smooth animations and responsive layout
+- Fast global content delivery using Amazon CloudFront
+- Secure HTTPS with SSL/TLS
+- Automated deployment using GitHub Actions
 
-## 🛠️ Technologies Used
+---
+
+## 🛠️ Tech Stack
 
 ### Frontend
 - HTML5
 - CSS3
 - JavaScript
 - Bootstrap
-- AOS Animation Library
 
 ### Cloud & DevOps
-- Amazon Web Services (AWS)
+- Amazon S3 (Static Website Hosting)
+- Amazon CloudFront (CDN)
+- AWS IAM
+- AWS Certificate Manager (ACM)
+- GitHub Actions (CI/CD)
+
+### Version Control
 - Git
 - GitHub
-- GitHub Actions
-- CI/CD
-
-### AWS Services
-- Amazon S3
-- CloudFront
-- Route 53
-- IAM
-- AWS Certificate Manager (ACM)
-- Lambda
-- API Gateway
-- DynamoDB
-- SNS
-- EC2
-- AWS IoT Core
-
-## 📂 Featured Projects
-
-### ⚡ Design and Development of Energy Monitoring and Visualization Platform for Smart Energy Meters
-A cloud-enabled IoT platform for real-time energy monitoring, visualization, historical analytics, and automated reporting.
-
-### 🌐 Apurva Creation
-A responsive business portfolio website deployed on AWS with CI/CD automation using GitHub Actions.
-
-### 📊 PowerPulse
-A smart energy monitoring platform for collecting and visualizing real-time electrical data using IoT technologies.
-
-### 💧 HydroSense
-An IoT-based smart water management system using Arduino, ultrasonic sensors, and GSM communication.
-
-### ⚙️ Janitza Power Quality Analyzer Kit
-Industrial project involving assembly, configuration, and testing of a Class-A Power Quality Analyzer kit.
-
-## 🏆 Certifications
-
-- AWS Certified Cloud Practitioner
-- GitHub Foundations Certified
-
-## 📄 Research & Achievements
-
-- IEEE Research Publication
-- Registered Software Copyright
-- Leadership roles in national-level technical events
-
-## 📸 Interests
-
-- Cloud Computing
-- DevOps
-- IoT
-- Automation
-- Street Photography
-
-## 📬 Connect With Me
-
-- LinkedIn: *Add your LinkedIn URL*
-- GitHub: *Add your GitHub URL*
-- Portfolio: *Add your Portfolio URL*
-- Email: **ycsonje4@gmail.com**
 
 ---
 
-### "Exploring Cloud & DevOps Technologies while continuously learning, building, and innovating."
+## ☁️ AWS Architecture
+
+```text
+GitHub Repository
+        │
+        ▼
+ GitHub Actions
+  (CI/CD Pipeline)
+        │
+        ▼
+ Amazon S3
+ (Website Hosting)
+        │
+        ▼
+ Amazon CloudFront
+   (CDN + HTTPS)
+        │
+        ▼
+www.yashcsonje.in
+```
+
+---
+
+## 🔄 CI/CD Pipeline
+
+### Continuous Integration (CI)
+- Triggered on every push to the `main` branch
+- Validates project changes before deployment
+
+### Continuous Delivery (CD)
+- Manual deployment using GitHub Actions
+- Uploads updated files to Amazon S3
+- Automatically invalidates CloudFront cache to serve the latest content
+
+---
+
+## 📂 Project Structure
+
+```text
+Portfolio/
+│
+├── assets/
+├── css/
+├── js/
+├── images/
+├── index.html
+└── .github/
+    └── workflows/
+        ├── ci.yml
+        └── deploy.yml
+```
+
+---
+
+## 📌 Highlights
+
+- AWS-hosted static website
+- Global content delivery with CloudFront
+- Secure HTTPS using ACM
+- Automated deployment pipeline with GitHub Actions
+- Production-ready cloud deployment
+
+---
+
+## 📫 Connect With Me
+
+**Portfolio:** https://www.yashcsonje.in
+
+**LinkedIn:** https://www.linkedin.com/in/yashcsonje
+
+**GitHub:** https://github.com/yashcsonje
+
+---
+
+⭐ If you found this project interesting, consider giving it a star!
