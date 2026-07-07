@@ -7,6 +7,9 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
 
+    environment:
+      name: Production
+      
     permissions:
       contents: read
 
