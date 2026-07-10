@@ -25,10 +25,18 @@
   });
 
   function sendmail(thisForm){
+    const replyTo = thisForm.querySelector('[name="reply_to"]');
+    if (replyTo) {
+      replyTo.value = thisForm.elements.email.value;
+    }
+
     if (typeof emailjs !== 'undefined') {
       emailjs.init({
         publicKey: "r1YGwEd2slTAXLqKT",
       });
+    } else {
+      displayError(thisForm, 'The email service is unavailable. Please try again later.');
+      return;
     }
     
     emailjs.sendForm('service_bx9gn4k', 'template_a4j9ojd', '#feedbackform')
