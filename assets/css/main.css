@@ -1422,17 +1422,44 @@ section,
   color: var(--default-color);
 }
 
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-  display: none; 
+.portfolio-carousel-control {
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  color: #444;
+  font-size: 18px;
+  line-height: 1;
+  background: var(--surface-color);
+  border: 1px solid color-mix(in srgb, var(--default-color) 10%, transparent);
+  border-radius: 50%;
+  transform: translateY(-50%);
+  opacity: 0.85;
 }
 
-.carousel-control-prev::before {
-  content: '\2039'; /* Left arrow symbol */
+.portfolio-carousel-control:hover,
+.portfolio-carousel-control:focus-visible {
+  color: #333;
+  background: var(--surface-color);
+  border-color: color-mix(in srgb, var(--default-color) 25%, transparent);
+  opacity: 1;
 }
 
-.carousel-control-next::before {
-  content: '\203A'; /* Right arrow symbol */
+.portfolio-carousel-prev {
+  left: 0;
+}
+
+.portfolio-carousel-next {
+  right: 0;
+}
+
+.portfolio-carousel-control .bi {
+  -webkit-text-stroke: 0.45px currentColor;
 }
 /* end */
 
@@ -2086,4 +2113,158 @@ section,
     color:#5f6672;
     line-height:1.9;
     font-size:17px;
+}
+
+/* Education timeline */
+.education-section {
+  margin-top: 64px;
+  padding-top: 52px;
+  border-top: 1px solid #edf0f3;
+}
+
+.education-section > h2 {
+  margin: 0 0 32px;
+  color: #0f2942;
+  font-size: clamp(32px, 4vw, 44px);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+}
+
+.education-timeline {
+  position: relative;
+}
+
+.education-item {
+  display: grid;
+  grid-template-columns: minmax(210px, 290px) 34px 1fr;
+  column-gap: 24px;
+  min-height: 138px;
+}
+
+.education-school h3,
+.education-degree h3 {
+  margin: 0;
+  color: #0f2942;
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.education-school p {
+  margin: 11px 0 0;
+  color: #f27a2c;
+  font-size: 17px;
+  font-weight: 400;
+}
+
+.education-marker {
+  position: relative;
+  width: 18px;
+  height: 18px;
+  margin-top: 5px;
+  border-radius: 50%;
+  background: #f27a2c;
+}
+
+.education-marker::after {
+  position: absolute;
+  top: 18px;
+  left: 8px;
+  width: 2px;
+  height: 120px;
+  background: #f8dfce;
+  content: "";
+}
+
+.education-degree p {
+  margin: 11px 0 5px;
+  color: #52677c;
+  font-size: 17px;
+  line-height: 1.5;
+}
+
+.education-degree p + p {
+  margin-top: 3px;
+}
+
+.education-degree span {
+  color: #6f7f8e;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+@media (max-width: 767px) {
+  .education-section { margin-top: 44px; padding-top: 40px; }
+  .education-item { grid-template-columns: 20px 1fr; gap: 12px; padding-bottom: 30px; }
+  .education-school { grid-column: 2; }
+  .education-marker { grid-row: 1 / span 2; grid-column: 1; }
+  .education-degree { grid-column: 2; margin-top: 14px; }
+  .education-marker::after { height: calc(100% + 12px); }
+}
+
+/* Project overview list */
+.project-list-item {
+  padding: 28px 20px 42px;
+  border-bottom: 1px solid #e6ebef;
+}
+
+.project-list-title {
+  margin: 0;
+  color: #0f2942;
+  font-size: clamp(24px, 2.5vw, 31px);
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.project-list-item h3.fw-bold,
+.project-list-item .badge,
+.project-list-item .text-muted,
+.project-list-item .col-lg-8 > p,
+.project-list-item .col-lg-8 > .mt-4:has(.badge),
+.project-list-item .btn-outline-dark {
+  display: none;
+}
+
+.project-description {
+  margin: 0;
+  padding-left: 21px;
+  color: #334f69;
+}
+
+.project-description li {
+  margin-bottom: 12px;
+  padding-left: 4px;
+  line-height: 1.65;
+}
+
+.project-list-item .btn-orange {
+  margin-top: 12px;
+}
+
+.academic-projects {
+  margin-top: 50px;
+  padding-top: 42px;
+}
+
+.academic-projects-title {
+  margin: 0 0 18px 5.5%;
+  color: #0f2942;
+  font-size: clamp(27px, 3vw, 36px);
+  font-weight: 700;
+}
+
+.academic-project-subtitle {
+  margin: 12px 0 0;
+  color: #f27a2c;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.project-list-item-last {
+  border-bottom: 0;
+}
+
+@media (max-width: 991px) {
+  .project-list-item { padding: 24px 0 34px; }
+  .academic-projects-title { margin-left: 0; }
 }

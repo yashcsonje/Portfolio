@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apurva Creation | Project Details</title>
+  <link href="../assets/img/Favicon.png" rel="icon" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root { --ink: #112a46; --orange: #f07826; --line: #e4e9ef; }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100vh; background: #f8fafc; color: var(--ink); font-family: Manrope, Arial, sans-serif; }
+    .page { width: min(1120px, calc(100% - 40px)); margin: 0 auto; padding: 62px 0 72px; }
+    .back { display: inline-flex; gap: 8px; color: #52677c; font-size: .92rem; font-weight: 700; text-decoration: none; }
+    .back:hover { color: var(--orange); }
+    .eyebrow { display: inline-block; margin: 38px 0 14px; padding: 7px 12px; border-radius: 999px; background: #fff0e6; color: #c75d18; font-size: .78rem; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; }
+    h1 { max-width: 850px; margin: 0; font-size: clamp(1.9rem, 4vw, 3.2rem); line-height: 1.18; letter-spacing: -.04em; }
+    .intro { max-width: 790px; margin: 19px 0 29px; color: #5d7083; font-size: 1.02rem; line-height: 1.75; }
+    .links { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 50px; }
+    .button { display: inline-flex; align-items: center; gap: 9px; padding: 12px 17px; border: 1px solid var(--ink); border-radius: 10px; color: var(--ink); font-weight: 800; text-decoration: none; transition: .2s ease; }
+    .button.primary { border-color: var(--orange); background: var(--orange); color: #fff; }
+    .github-icon { width: 20px; height: 20px; object-fit: contain; }
+    .button:hover { transform: translateY(-2px); box-shadow: 0 8px 18px #112a4620; }
+    .showcase { position: relative; width: min(100%, 860px); margin: 0 auto; overflow: hidden; border: 1px solid var(--line); border-radius: 18px; background: #0c1728; box-shadow: 0 22px 44px #112a4622; }
+    .slides { display: flex; transition: transform .45s ease; }
+    .slide { flex: 0 0 100%; margin: 0; }
+    .slide img { display: block; width: 100%; height: min(52vw, 450px); object-fit: contain; background: #0c1728; }
+    .slide figcaption { padding: 13px 56px; background: #fff; color: #52677c; font-size: .9rem; text-align: center; }
+    .control { position: absolute; top: calc(50% - 22px); z-index: 2; display: grid; place-items: center; width: 44px; height: 44px; border: 0; border-radius: 50%; background: #ffffffdd; color: var(--ink); cursor: pointer; font-size: 1.6rem; line-height: 1; box-shadow: 0 4px 12px #0003; }
+    .control:hover { background: var(--orange); color: #fff; }.previous { left: 16px; }.next { right: 16px; }.dots { display: flex; justify-content: center; gap: 8px; margin-top: 18px; }.dot { width: 9px; height: 9px; padding: 0; border: 0; border-radius: 50%; background: #cdd5de; cursor: pointer; }.dot.active { width: 25px; border-radius: 8px; background: var(--orange); }.note { margin: 18px 0 0; color: #6d7d8c; font-size: .84rem; text-align: center; }
+    .details { display: grid; gap: 28px; margin-top: 64px; }
+    .detail-card { padding: clamp(24px, 4vw, 42px); border: 1px solid var(--line); border-radius: 18px; background: #fff; box-shadow: 0 10px 30px #112a460b; }
+    .detail-card h2 { margin: 0 0 18px; font-size: clamp(1.45rem, 3vw, 2rem); letter-spacing: -.03em; }
+    .detail-card h3 { margin: 31px 0 11px; font-size: 1.12rem; }
+    .detail-card p { margin: 0 0 16px; color: #52677c; line-height: 1.8; }
+    .highlights { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 11px 26px; margin: 22px 0 0; padding: 0; list-style: none; }
+    .highlights li { display: flex; gap: 10px; color: #40566c; line-height: 1.55; }
+    .highlights li::before { flex: 0 0 auto; color: var(--orange); content: '✓'; font-weight: 800; }
+    @media (max-width: 700px) { .highlights { grid-template-columns: 1fr; } }
+    @media (max-width: 600px) { .page { width: min(100% - 28px, 1120px); padding-top: 34px; }.previous { left: 9px; }.next { right: 9px; }.control { width: 36px; height: 36px; }.slide figcaption { padding: 11px 45px; font-size: .78rem; } }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <a class="back" href="../index.html#projects" aria-label="Return to projects">← Back to projects</a>
+    <span class="eyebrow">Featured Project</span>
+    <h1>Apurva Creation – Creative Agency Platform</h1>
+    <p class="intro">A production-ready creative agency website with a responsive experience, secure AWS hosting, and automated CI/CD deployment.</p>
+    <div class="links">
+      <a class="button primary" href="https://www.apurvacreation.in/" target="_blank" rel="noopener">↗ View live website</a>
+      <a class="button" href="https://github.com/varadjoshi223/Apurvacreation" target="_blank" rel="noopener">
+        <img class="github-icon" src="../assets/img/misc/github.webp" alt="" aria-hidden="true">
+        View on GitHub
+      </a>
+    </div>
+
+    <section aria-label="Apurva Creation project images">
+      <div class="showcase" id="project-slider">
+        <div class="slides">
+          <figure class="slide"><img src="../assets/img/projects/Apurva%20Creation/Block%20Diagram.png" alt="Apurva Creation block diagram"><figcaption><strong>Block Diagram</strong> &mdash; Overview of the Apurva Creation cloud hosting and deployment architecture.</figcaption></figure>
+          <figure class="slide"><img src="../assets/img/projects/Apurva%20Creation/Work%20flow.png" alt="Apurva Creation deployment workflow"><figcaption><strong>Workflow</strong> &mdash; Development, CI/CD automation, and cloud deployment workflow.</figcaption></figure>
+        </div>
+        <button class="control previous" type="button" aria-label="Previous image">&#8249;</button>
+        <button class="control next" type="button" aria-label="Next image">&#8250;</button>
+      </div>
+      <div class="dots" aria-label="Choose image"></div>
+      <p class="note">Use the arrows or dots to browse project images.</p>
+    </section>
+
+    <section class="details" aria-label="Apurva Creation project details">
+      <article class="detail-card">
+        <h2>About Project</h2>
+        <p><strong>Apurva Creation – Creative Agency Platform</strong></p>
+        <p>Apurva Creation is a production-ready static website developed for a creative agency to showcase photography services, portfolios, and business information through a modern and responsive user interface. The application was built using Next.js, React.js, TypeScript, and Tailwind CSS, providing a fast, SEO-friendly experience across all devices.</p>
+        <p>The website is hosted on Amazon S3 and delivered globally through Amazon CloudFront, with secure HTTPS access enabled using AWS Certificate Manager (ACM). A complete CI/CD pipeline was implemented with GitHub Actions, enabling automated build and deployment whenever changes are pushed to the GitHub repository.</p>
+        <p>The project demonstrates practical AWS cloud hosting, static website deployment, secure cloud infrastructure, CDN-based content delivery, and DevOps automation—resulting in a scalable, secure, production-ready web application.</p>
+        <h3>Key Highlights</h3>
+        <ul class="highlights">
+          <li>Production-ready static website with Next.js, React.js, TypeScript, and Tailwind CSS</li>
+          <li>Amazon S3 hosting with global content delivery through CloudFront</li>
+          <li>Private S3 buckets protected by CloudFront Origin Access Control (OAC)</li>
+          <li>HTTPS/TLS security using IAM and AWS Certificate Manager (ACM)</li>
+          <li>Automated build and deployment through GitHub Actions CI/CD</li>
+          <li>Optimized performance with CloudFront caching and static asset delivery</li>
+          <li>Responsive, scalable, and secure architecture following AWS best practices</li>
+        </ul>
+      </article>
+
+    </section>
+  </main>
+  <script>
+    const slider=document.querySelector('#project-slider'),slides=slider.querySelector('.slides'),items=[...slider.querySelectorAll('.slide')],dots=document.querySelector('.dots');let current=0;items.forEach((_,index)=>{const dot=document.createElement('button');dot.className='dot';dot.type='button';dot.setAttribute('aria-label',`Show image ${index+1}`);dot.addEventListener('click',()=>show(index));dots.appendChild(dot)});function show(index){current=(index+items.length)%items.length;slides.style.transform=`translateX(-${current*100}%)`;[...dots.children].forEach((dot,i)=>dot.classList.toggle('active',i===current))}slider.querySelector('.previous').addEventListener('click',()=>show(current-1));slider.querySelector('.next').addEventListener('click',()=>show(current+1));show(0);
+  </script>
+</body>
+</html>

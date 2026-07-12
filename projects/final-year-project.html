@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PowerPulse | Project Details</title>
+  <link href="../assets/img/Favicon.png" rel="icon" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root { --ink: #112a46; --orange: #f07826; --line: #e4e9ef; }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100vh; background: #f8fafc; color: var(--ink); font-family: Manrope, Arial, sans-serif; }
+    .page { width: min(1120px, calc(100% - 40px)); margin: 0 auto; padding: 62px 0 72px; }
+    .back { display: inline-flex; align-items: center; gap: 8px; color: #52677c; font-size: .92rem; font-weight: 700; text-decoration: none; }
+    .back:hover { color: var(--orange); }
+    .eyebrow { display: inline-block; margin: 38px 0 14px; padding: 7px 12px; border-radius: 999px; background: #fff0e6; color: #c75d18; font-size: .78rem; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; }
+    h1 { max-width: 940px; margin: 0; font-size: clamp(1.8rem, 4vw, 3.1rem); line-height: 1.18; letter-spacing: -.04em; }
+    .intro { max-width: 770px; margin: 19px 0 29px; color: #5d7083; font-size: 1.02rem; line-height: 1.75; }
+    .links { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 38px; }
+    .button { display: inline-flex; align-items: center; gap: 9px; padding: 12px 17px; border: 1px solid var(--ink); border-radius: 10px; color: var(--ink); font-weight: 800; text-decoration: none; transition: .2s ease; }
+    .button.primary { border-color: var(--orange); background: var(--orange); color: #fff; }
+    .github-icon { width: 20px; height: 20px; object-fit: contain; }
+    .button:hover { transform: translateY(-2px); box-shadow: 0 8px 18px #112a4620; }
+    .showcase { position: relative; width: min(100%, 860px); margin: 0 auto; overflow: hidden; border: 1px solid var(--line); border-radius: 18px; background: #0c1728; box-shadow: 0 22px 44px #112a4622; }
+    .slides { display: flex; transition: transform .45s ease; }
+    .slide { flex: 0 0 100%; margin: 0; }
+    .slide img { display: block; width: 100%; height: min(52vw, 450px); object-fit: contain; background: #0c1728; }
+    .slide figcaption { padding: 13px 56px; background: #fff; color: #52677c; font-size: .9rem; text-align: center; }
+    .control { position: absolute; top: calc(50% - 22px); z-index: 2; display: grid; place-items: center; width: 44px; height: 44px; border: 0; border-radius: 50%; background: #ffffffdd; color: var(--ink); cursor: pointer; font-size: 1.6rem; line-height: 1; box-shadow: 0 4px 12px #0003; }
+    .control:hover { background: var(--orange); color: #fff; }
+    .previous { left: 16px; } .next { right: 16px; }
+    .dots { display: flex; justify-content: center; gap: 8px; margin-top: 18px; }
+    .dot { width: 9px; height: 9px; padding: 0; border: 0; border-radius: 50%; background: #cdd5de; cursor: pointer; }
+    .dot.active { width: 25px; border-radius: 8px; background: var(--orange); }
+    .note { margin: 18px 0 0; color: #6d7d8c; font-size: .84rem; text-align: center; }
+    .details { display: grid; gap: 28px; margin-top: 64px; }
+    .detail-card { padding: clamp(24px, 4vw, 42px); border: 1px solid var(--line); border-radius: 18px; background: #fff; box-shadow: 0 10px 30px #112a460b; }
+    .detail-card h2 { margin: 0 0 18px; font-size: clamp(1.45rem, 3vw, 2rem); letter-spacing: -.03em; }
+    .detail-card h3 { margin: 31px 0 11px; font-size: 1.12rem; }
+    .detail-card p { margin: 0 0 16px; color: #52677c; line-height: 1.8; }
+    .highlights { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 11px 26px; margin: 22px 0 0; padding: 0; list-style: none; }
+    .highlights li { display: flex; gap: 10px; color: #40566c; line-height: 1.55; }
+    .highlights li::before { flex: 0 0 auto; color: var(--orange); content: '✓'; font-weight: 800; }
+    .architecture { display: grid; gap: 14px; margin-top: 25px; }
+    .layer { padding: 21px; border-left: 4px solid var(--orange); border-radius: 0 12px 12px 0; background: #fff8f3; }
+    .layer h3 { margin: 0 0 9px; color: var(--ink); }
+    .layer p { margin: 0; }
+    .stack { display: grid; grid-template-columns: 160px 1fr; gap: 16px 24px; margin: 24px 0 0; }
+    .stack dt { font-weight: 800; } .stack dd { margin: 0; color: #52677c; line-height: 1.65; }
+    @media (max-width: 700px) { .highlights { grid-template-columns: 1fr; } .stack { grid-template-columns: 1fr; gap: 3px; } .stack dd { margin-bottom: 13px; } }
+    @media (max-width: 600px) { .page { width: min(100% - 28px, 1120px); padding-top: 34px; } .previous { left: 9px; } .next { right: 9px; } .control { width: 36px; height: 36px; } .slide figcaption { padding: 11px 45px; font-size: .78rem; } }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <a class="back" href="../index.html#projects" aria-label="Return to projects">← Back to projects</a>
+    <span class="eyebrow">Final Year Project</span>
+    <h1>PowerPulse – Cloud Based Smart Energy Monitoring Platform</h1>
+    <p class="intro">PowerPulse is a cloud-enabled platform for collecting and visualizing real-time electrical energy data from multifunction meters. It provides live source comparison, three-phase meter insights, historical analytics and reporting for efficient energy management.</p>
+    <div class="links">
+      <a class="button primary" href="http://3.109.150.164:8082/login" target="_blank" rel="noopener">↗ View live website</a>
+      <a class="button" href="https://github.com/yashcsonje/PowerPulse" target="_blank" rel="noopener">
+        <img class="github-icon" src="../assets/img/misc/github.webp" alt="" aria-hidden="true">
+        View on GitHub
+      </a>
+    </div>
+
+    <section aria-label="PowerPulse project screenshots">
+      <div class="showcase" id="project-slider">
+        <div class="slides">
+          <figure class="slide">
+            <img src="../assets/img/projects/Powerpulse/System%20Architecture.png" alt="PowerPulse cloud system architecture">
+            <figcaption><strong>System Architecture</strong> — Device gateway, AWS processing services, and application layer working together.</figcaption>
+          </figure>
+          <figure class="slide">
+            <img src="../assets/img/projects/Powerpulse/Admin%20Access%20for%20Dashboard.png" alt="PowerPulse dashboard with administrator access">
+            <figcaption><strong>Admin Dashboard Access</strong> — Administrative controls for managing the PowerPulse dashboard.</figcaption>
+          </figure>
+          <figure class="slide">
+            <img src="../assets/img/projects/Powerpulse/AI-Based%20Power%20Quality%20Summary%20Report.png" alt="AI-based power quality summary report in PowerPulse">
+            <figcaption><strong>AI-Based Power Quality Summary</strong> — Intelligent analysis of power quality data and energy insights.</figcaption>
+          </figure>
+          <figure class="slide">
+            <img src="../assets/img/projects/Powerpulse/Data%20Table%20Interface%20with%20Dynamic%20Column%20Selection%20Feature.png" alt="Data table interface with dynamic column selection">
+            <figcaption><strong>Flexible Data Table</strong> — Historical energy records with dynamic column selection.</figcaption>
+          </figure>
+          <figure class="slide">
+            <img src="../assets/img/projects/Powerpulse/Email%20Alert%20Generated%20by%20AWS%20SNS%20Notification%20Service.png" alt="AWS SNS email alert generated by PowerPulse">
+            <figcaption><strong>AWS SNS Email Alert</strong> — Instant notification generated when an abnormal condition is detected.</figcaption>
+          </figure>
+          <figure class="slide">
+            <img src="../assets/img/projects/Powerpulse/Historical%20Data%20Logging%20Storage%20Interface%20(Downtime%20incidents).png" alt="Historical data logging interface for downtime incidents">
+            <figcaption><strong>Historical Data Logging</strong> — Stored energy and downtime incident records for later analysis.</figcaption>
+          </figure>
+          <figure class="slide">
+            <img src="../assets/img/projects/Powerpulse/Reports%20Interface%20with%20Date%20Range%20Selection.png" alt="Reports interface with date range selection">
+            <figcaption><strong>Reports by Date Range</strong> — Generate and review energy reports for a selected period.</figcaption>
+          </figure>
+          <figure class="slide">
+            <img src="../assets/img/projects/Powerpulse/Successfully%20Confirmed%20SNS%20Email%20Subscriptions%20in%20PowerPulse%20Dashboard.png" alt="Confirmed AWS SNS email subscriptions in the PowerPulse dashboard">
+            <figcaption><strong>Confirmed SNS Subscriptions</strong> — Dashboard view of configured email alert recipients.</figcaption>
+          </figure>
+          <figure class="slide">
+            <img src="../assets/img/projects/Powerpulse/Viewer%20Access%20for%20Dashboard.png" alt="PowerPulse dashboard with viewer access">
+            <figcaption><strong>Viewer Dashboard Access</strong> — Read-only access for monitoring energy information securely.</figcaption>
+          </figure>
+        </div>
+        <button class="control previous" type="button" aria-label="Previous screenshot">‹</button>
+        <button class="control next" type="button" aria-label="Next screenshot">›</button>
+      </div>
+      <div class="dots" aria-label="Choose screenshot"></div>
+      <p class="note">Use the arrows or dots to browse project screenshots.</p>
+    </section>
+
+    <section class="details" aria-label="PowerPulse project details">
+      <article class="detail-card">
+        <h2>About Project</h2>
+        <p><strong>PowerPulse – Cloud-Based Smart Energy Monitoring Platform</strong></p>
+        <p>PowerPulse is my Final Year B.Tech project developed to build a centralized, cloud-based platform for real-time energy monitoring and analytics. The system is designed to monitor and compare energy consumption between the College Grid Supply (MSEDCL) and the Diesel Generator (DG) using industrial smart energy meters.</p>
+        <p>An Industrial IoT Gateway (TRB245) collects real-time electrical parameters from both meters and securely transmits the data to AWS Cloud using the MQTT protocol. The data is processed through AWS serverless services, stored in Amazon DynamoDB, and visualized on an interactive web dashboard for live monitoring and historical analysis.</p>
+        <p>The platform also supports automated energy report generation, allowing users to analyze historical consumption patterns and compare the performance of Grid and DG power sources. Additionally, Amazon Bedrock is integrated to generate AI-powered insights, helping identify energy usage trends and support better energy management decisions.</p>
+        <p>PowerPulse demonstrates the practical implementation of Industrial IoT, Cloud Computing, Serverless Architecture, and AI-driven analytics to deliver a scalable, secure, and intelligent energy monitoring solution.</p>
+        <h3>Key Highlights</h3>
+        <ul class="highlights">
+          <li>Designed for monitoring College Grid (MSEDCL) and Diesel Generator (DG) energy consumption.</li>
+          <li>Real-time acquisition of electrical parameters from industrial smart energy meters.</li>
+          <li>Secure MQTT-based communication between IoT Gateway and AWS Cloud.</li>
+          <li>Serverless data processing using AWS Lambda.</li>
+          <li>Historical energy data storage with Amazon DynamoDB.</li>
+          <li>AI-powered energy insights using Amazon Bedrock.</li>
+          <li>Automated energy report generation and historical analysis.</li>
+          <li>Instant alert notifications using Amazon SNS.</li>
+          <li>Interactive web dashboard for real-time visualization and source-wise comparison.</li>
+          <li>Scalable, secure, and cloud-native architecture built on AWS.</li>
+        </ul>
+      </article>
+
+      <article class="detail-card">
+        <h2>About Architecture</h2>
+        <p><strong>Three-Layer Cloud-Based Architecture</strong></p>
+        <p>PowerPulse follows a three-layer cloud architecture that provides secure data collection, efficient processing, scalable storage, and intelligent visualization of industrial energy data.</p>
+        <div class="architecture">
+          <section class="layer">
+            <h3>Layer 1 – Device Gateway</h3>
+            <p>An Industrial IoT Gateway (TRB245) connects to smart energy meters through industrial communication protocols. It collects real-time electrical parameters and securely publishes telemetry to AWS IoT Core over MQTT, bridging field devices and cloud infrastructure.</p>
+          </section>
+          <section class="layer">
+            <h3>Layer 2 – AWS IoT Processing</h3>
+            <p>AWS IoT Core receives telemetry while the IoT Rules Engine filters and routes messages. AWS Lambda validates and processes data, Amazon DynamoDB stores real-time and historical records with low latency, and Amazon SNS delivers instant abnormal-condition notifications. Together, these services provide a fully managed, scalable, serverless processing backend.</p>
+          </section>
+          <section class="layer">
+            <h3>Layer 3 – Application Layer</h3>
+            <p>Node.js and Express.js APIs run on Amazon EC2. Amazon Bedrock generates AI-powered energy insights, while Amazon S3 hosts the frontend, CloudFront accelerates delivery, and Route 53 manages DNS. The web dashboard presents live monitoring, historical trends, charts, and AI-generated recommendations.</p>
+          </section>
+        </div>
+        <h3>Technology Stack</h3>
+        <dl class="stack">
+          <dt>Cloud Services</dt><dd>AWS IoT Core, AWS IoT Rules Engine, AWS Lambda, Amazon DynamoDB, Amazon SNS, Amazon EC2, Amazon Bedrock, Amazon S3, Amazon CloudFront, Amazon Route 53</dd>
+          <dt>Backend</dt><dd>Node.js, Express.js, REST API</dd>
+          <dt>Frontend</dt><dd>HTML, CSS, JavaScript, Chart.js</dd>
+          <dt>Database</dt><dd>Amazon DynamoDB</dd>
+          <dt>Communication</dt><dd>MQTT, Modbus RTU (RS-485)</dd>
+          <dt>IoT Device</dt><dd>Industrial IoT Gateway (TRB245)</dd>
+        </dl>
+      </article>
+    </section>
+  </main>
+  <script>
+    const slider = document.querySelector('#project-slider');
+    const slides = slider.querySelector('.slides');
+    const items = [...slider.querySelectorAll('.slide')];
+    const dots = document.querySelector('.dots');
+    let current = 0;
+    items.forEach((_, index) => {
+      const dot = document.createElement('button');
+      dot.className = 'dot'; dot.type = 'button'; dot.setAttribute('aria-label', `Show screenshot ${index + 1}`);
+      dot.addEventListener('click', () => show(index)); dots.appendChild(dot);
+    });
+    function show(index) { current = (index + items.length) % items.length; slides.style.transform = `translateX(-${current * 100}%)`; [...dots.children].forEach((dot, i) => dot.classList.toggle('active', i === current)); }
+    slider.querySelector('.previous').addEventListener('click', () => show(current - 1));
+    slider.querySelector('.next').addEventListener('click', () => show(current + 1));
+    show(0);
+  </script>
+</body>
+</html>
